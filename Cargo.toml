@@ -1,7 +1,11 @@
 [package]
 name = "unicopy"
+description = "A simple program to open a textbox that you can type one unicode on and it will be copied to your clipboard."
 version = "0.1.0"
 edition = "2021"
+lisence = "MIT"
+repository = "https://github.com/asciiboi/unicopy"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
