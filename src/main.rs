@@ -5,6 +5,19 @@ use copypasta::{ClipboardContext, ClipboardProvider};
 
 
 
+#[test]
+fn test_parse_hex() {
+    assert_eq!(parse_hex("U+03fa".to_string()).unwrap(), "03FA");
+}
+
+
+
+fn parse_hex(hex: String) -> Result<String, String> {
+    let mut string = hex.clone();
+    string.make_ascii_uppercase();
+    string = string.trim_start_matches("U+").to_string();
+    Ok(string)
+}
 
 fn main() {
     let input = dialog::Input::new("Please the hex of the unicode.")
@@ -12,10 +25,16 @@ fn main() {
         .show()
         .expect("Could not display dialog box");
     let code = match input {
-        Some(name) => name,
+        Some(inp) => {
+            match parse_hex(inp) {
+                Ok(v) => v,
+                Err(_) => return,
+            }
+        },
         None => return,
     };
 
+    
 
     let val = u32::from_str_radix(&code, 16).expect("Could not convert the input to u32");
 

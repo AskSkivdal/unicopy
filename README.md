@@ -1,6 +1,10 @@
 # unicopy
 A simple program that opens a text box that you can type any unicode into and it will copy it to your clipboard.
 
+Works on: Fedora
+Dosnt work on: Windows
+
+Not tested: Mac os
 ## Install
 To install unicopy run.
 ```
